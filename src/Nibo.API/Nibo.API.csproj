@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nibo.Persistence\Nibo.Persistence.csproj" />
+    <ProjectReference Include="..\Nibo.Util\Nibo.Util.csproj" />
+  </ItemGroup>
+
+
+</Project>
