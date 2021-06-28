@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Nibo.Application.Interfaces;
+using Nibo.Application.Services;
 
 namespace Nibo.Application
 {
@@ -8,7 +9,7 @@ namespace Nibo.Application
         public static IServiceCollection RegisterApplicationServices(
             this IServiceCollection services)
         {
-            services.AddScoped<ITransactionService, ITransactionService>();
+            services.AddScoped<ITransactionService, TransactionService>();
 
             return services;
         }

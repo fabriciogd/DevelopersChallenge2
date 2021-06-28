@@ -11,6 +11,22 @@ namespace Nibo.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Transaction> builder)
         {
+            builder.HasKey(a => a.Id);
+
+            builder.Property(c => c.BankId)
+                .IsRequired();
+
+            builder.Property(c => c.Date)
+                .IsRequired();
+
+            builder.Property(c => c.Type)
+                .IsRequired();
+
+            builder.Property(c => c.Amount)
+               .IsRequired();
+
+            builder.Property(c => c.Memo)
+                .IsRequired();
         }
     }
 }

@@ -26,7 +26,7 @@ namespace Nibo.API.Controllers
         {
             DocumentParser parser = new DocumentParser();
 
-            IEnumerable<TransactionBank> transactions = files.SelectMany(f => parser.Parse(f));
+            IEnumerable<Util.Parser.Models.TransactionBank> transactions = files.SelectMany(f => parser.Parse(f));
 
             return await _transactionService.ImportAsync(transactions);
         }

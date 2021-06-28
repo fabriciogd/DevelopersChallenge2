@@ -40,9 +40,9 @@ namespace Nibo.Application.Services
             });
         }
 
-        public async Task<bool> ImportAsync(IEnumerable<TransactionBank> imports)
+        public async Task<bool> ImportAsync(IEnumerable<Util.Parser.Models.TransactionBank> imports)
         {
-            List<Transaction> transactions = new List<Transaction>();
+            List<Domain.Entity.Transaction> transactions = new List<Domain.Entity.Transaction>();
 
             foreach (var import in imports)
             {
@@ -57,7 +57,7 @@ namespace Nibo.Application.Services
 
                 if (!transactionExists)
                 {
-                    transactions.Add(new Transaction()
+                    transactions.Add(new Domain.Entity.Transaction()
                     {
                         BankId = import.BankId,
                         Date = import.Date,
