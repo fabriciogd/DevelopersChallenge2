@@ -15,3 +15,4 @@ Melhorias que podem ser realizadas
 1. Criar controller separada para executar a importação dos dados
 2. Documentar o código
 3. Verificar duplicação em lote
+4. Atualizar para padrão CQRS
