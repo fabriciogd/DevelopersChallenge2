@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Nibo.Application.Context;
-using System.Transactions;
+using Nibo.Domain.Entity;
+using Nibo.Persistence.Configurations;
 
 namespace Nibo.Persistence.Context
 {
@@ -14,9 +15,9 @@ namespace Nibo.Persistence.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(NiboDBContext).Assembly);
-
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfiguration(new TransactionConfiguration());
         }
     }
 }

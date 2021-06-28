@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Transactions;
+using Nibo.Domain.Entity;
 
 namespace Nibo.Application.Context
 {
@@ -7,6 +7,6 @@ namespace Nibo.Application.Context
     {
         public DbSet<Transaction> Transactions { get; set; }
 
-        public  DbSet<TEntity> Set<TEntity>() where TEntity : class;
+        public DbSet<TEntity> Set<TEntity>() where TEntity : class;
     }
 }
