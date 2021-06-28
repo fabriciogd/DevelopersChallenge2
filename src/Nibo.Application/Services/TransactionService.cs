@@ -40,9 +40,27 @@ namespace Nibo.Application.Services
             });
         }
 
-        public async Task<bool> ImportAsync(IEnumerable<Util.Parser.Models.TransactionBank> imports)
+        public async Task<TransactionDTO> GetByIdAsync(int id)
         {
-            List<Domain.Entity.Transaction> transactions = new List<Domain.Entity.Transaction>();
+            var transaction = await _transactionRepository.GetByIdAsync(id);
+
+            if (transaction == null)
+                return null;
+
+            return new TransactionDTO()
+            {
+                Id = transaction.Id,
+                BankId = transaction.BankId,
+                Date = transaction.Date,
+                Type = transaction.Type,
+                Amount = transaction.Amount,
+                Memo = transaction.Memo
+            };
+        }
+
+        public async Task<TransactionImportDTO> ImportAsync(IEnumerable<TransactionBank> imports)
+        {
+            List<Transaction> transactions = new List<Transaction>();
 
             foreach (var import in imports)
             {
@@ -72,7 +90,11 @@ namespace Nibo.Application.Services
 
             await _unitOfWork.SaveChangesAsync();
 
-            return transactions.Count > 0;
+            return new TransactionImportDTO()
+            {
+                Success = true,
+                Count = transactions.Count
+            };
         }
     }
 }

@@ -22,11 +22,11 @@ namespace Nibo.API.Controllers
         }
 
         [HttpPost]
-        public async Task<bool> Import([FromForm(Name = "files")] List<IFormFile> files)
+        public async Task<TransactionImportDTO> Import([FromForm(Name = "files")] List<IFormFile> files)
         {
             DocumentParser parser = new DocumentParser();
 
-            IEnumerable<Util.Parser.Models.TransactionBank> transactions = files.SelectMany(f => parser.Parse(f));
+            IEnumerable<TransactionBank> transactions = files.SelectMany(f => parser.Parse(f));
 
             return await _transactionService.ImportAsync(transactions);
         }
@@ -35,6 +35,12 @@ namespace Nibo.API.Controllers
         public async Task<IEnumerable<TransactionDTO>> GetAll()
         {
             return await _transactionService.GetAllAsync();
+        }
+
+        [HttpGet("{id}")]
+        public async Task<TransactionDTO> GetById([FromRoute]int id)
+        {
+            return await _transactionService.GetByIdAsync(id);
         }
     }
 }

@@ -12,6 +12,8 @@ namespace Nibo.Domain.Interfaces
 
         Task<List<TEntity>> GetAllAsync();
 
+        Task<TEntity> GetByIdAsync(int id);
+
         Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> predicate = null);
     }
 }

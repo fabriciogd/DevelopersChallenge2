@@ -9,8 +9,10 @@ namespace Nibo.Application.Interfaces
 {
     public interface ITransactionService
     {
-        public Task<bool> ImportAsync(IEnumerable<TransactionBank> imports);
+        public Task<TransactionImportDTO> ImportAsync(IEnumerable<TransactionBank> imports);
 
         public Task<IEnumerable<TransactionDTO>> GetAllAsync();
+
+        public Task<TransactionDTO> GetByIdAsync(int id);
     }
 }
