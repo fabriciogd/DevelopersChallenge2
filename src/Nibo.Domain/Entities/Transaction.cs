@@ -7,11 +7,6 @@ namespace Nibo.Domain.Entity
     [Table("Transactions")]
     public class Transaction: Poco
     {
-        public Transaction()
-        {
-
-        }
-
         public int BankId { get; set; }
 
         public DateTime Date { get; set; }

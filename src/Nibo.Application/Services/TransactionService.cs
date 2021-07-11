@@ -1,15 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
-using Nibo.Application.Context;
+﻿using Nibo.Application.Context;
 using Nibo.Application.Interfaces;
 using Nibo.Domain.DTO;
 using Nibo.Domain.Entity;
 using Nibo.Domain.Interfaces;
-using Nibo.Util.Parser;
 using Nibo.Util.Parser.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Nibo.Application.Services
@@ -75,7 +71,7 @@ namespace Nibo.Application.Services
 
                 if (!transactionExists)
                 {
-                    transactions.Add(new Domain.Entity.Transaction()
+                    transactions.Add(new Transaction()
                     {
                         BankId = import.BankId,
                         Date = import.Date,

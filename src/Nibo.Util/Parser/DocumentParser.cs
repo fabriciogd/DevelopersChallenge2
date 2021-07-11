@@ -15,7 +15,9 @@ namespace Nibo.Util.Parser
     {
         public IEnumerable<TransactionBank> Parse(IFormFile file)
         {
-            string data = new Reader().ReadFile(file);
+            IReader reader = new Reader();
+
+            string data = reader.ReadFile(file);
 
             data = ConvertToXML(data);
 

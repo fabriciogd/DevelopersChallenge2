@@ -1,6 +1,7 @@
 ﻿using Nibo.Domain.Base;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
@@ -10,7 +11,7 @@ namespace Nibo.Domain.Interfaces
     {
         Task<bool> AddRangeAsync(List<TEntity> entity);
 
-        Task<List<TEntity>> GetAllAsync();
+        Task<IList<TEntity>> GetAllAsync();
 
         Task<TEntity> GetByIdAsync(int id);
 

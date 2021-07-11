@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Nibo.Util.IO
 {
-    public class Reader
+    public class Reader: IReader
     {
         public string ReadFile(IFormFile file)
         {

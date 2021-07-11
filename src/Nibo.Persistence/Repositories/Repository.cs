@@ -19,24 +19,24 @@ namespace Nibo.Persistence.Repositories
             DbSet = db.Set<TEntity>();
         }
 
-        public async Task<bool> AddRangeAsync(List<TEntity> entity)
+        public virtual async Task<bool> AddRangeAsync(List<TEntity> entity)
         {
             await DbSet.AddRangeAsync(entity);
 
             return true;
         }
 
-        public async Task<List<TEntity>> GetAllAsync()
+        public virtual async Task<IList<TEntity>> GetAllAsync()
         {
             return await DbSet.AsNoTracking().ToListAsync();
         }
 
-        public async Task<TEntity> GetByIdAsync(int id)
+        public virtual async Task<TEntity> GetByIdAsync(int id)
         {
             return await DbSet.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id);
         }
 
-        public async Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> predicate = null)
+        public virtual async Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> predicate = null)
         {
             return await DbSet.AnyAsync(predicate);
         }

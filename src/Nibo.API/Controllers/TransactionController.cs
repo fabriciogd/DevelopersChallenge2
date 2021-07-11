@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Nibo.Application.Interfaces;
 using Nibo.Domain.DTO;
-using Nibo.Domain.Entity;
 using Nibo.Util.Parser;
 using Nibo.Util.Parser.Models;
 using System.Collections.Generic;

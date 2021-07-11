@@ -23,6 +23,11 @@ namespace Nibo.Persistence.Context
             return await _context.SaveChangesAsync();
         }
 
+        ~UnitOfWork()
+        {
+            Dispose(false);
+        }
+
         public void Dispose()
         {
             Dispose(true);
